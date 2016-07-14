@@ -1,0 +1,3 @@
+target 'CorePlotExample' do
+pod 'CorePlot', '~> 2.1'
+end
