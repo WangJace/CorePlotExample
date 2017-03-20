@@ -21,14 +21,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAR-ts-nFv" customClass="CPTGraphHostingView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="nAR-ts-nFv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C2z-YS-AJ1"/>
-                <constraint firstItem="nAR-ts-nFv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pvw-Ye-e69"/>
+                <constraint firstItem="nAR-ts-nFv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Pvw-Ye-e69"/>
                 <constraint firstAttribute="trailing" secondItem="nAR-ts-nFv" secondAttribute="trailing" id="kB2-g3-wh2"/>
                 <constraint firstAttribute="bottom" secondItem="nAR-ts-nFv" secondAttribute="bottom" id="zOJ-Vd-pS4"/>
             </constraints>

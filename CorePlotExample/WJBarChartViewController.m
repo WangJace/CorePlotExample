@@ -38,8 +38,6 @@
                     @{ @"x" : @16, @"y" : @30 },
                     @{ @"x" : @18, @"y" : @19 }
                     ];
-
-    [self setPlot];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -138,7 +136,7 @@
     barPlot.barCornerRadius = 2.0;
     barPlot.lineStyle = borderLineStyle;
     // 柱状图的标识
-    barPlot.identifier = @"BarPlot";
+    barPlot.identifier = @"BarChart";
     barPlot.dataSource = self;
     barPlot.delegate = self;
     [graph addPlot:barPlot];

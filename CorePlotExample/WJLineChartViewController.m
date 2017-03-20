@@ -40,8 +40,6 @@
                     @{ @"x" : @18, @"y" : @19 },
                     @{ @"x" : @20, @"y" : @14 }
                     ];
-
-    [self setPlot];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -131,13 +129,13 @@
 
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.dataSource = self;
-    linePlot.identifier = @"LineChartPlot";
-    linePlot.cachePrecision = CPTPlotCachePrecisionAuto;
+    linePlot.identifier = @"LineChart";
+    // 折线图圆滑处理
     linePlot.interpolation = CPTScatterPlotInterpolationCurved;
     lineStyle.lineColor = LineChartDefaultColor(1.0);
     linePlot.dataLineStyle = lineStyle;
 
-
+    // 设置渐变色
     CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:LineChartDefaultColor(0.6)
                                                             endingColor:LineChartDefaultColor(0.2)];
     areaGradient.angle = -90.0f;
