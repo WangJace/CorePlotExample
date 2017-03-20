@@ -7,24 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0348731B1E7F7AF500CF1943 /* WJBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873191E7F7AF500CF1943 /* WJBarChartViewController.m */; };
+		0348731C1E7F7AF500CF1943 /* WJBarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */; };
+		034873201E7F7B1100CF1943 /* WJLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */; };
+		034873211E7F7B1100CF1943 /* WJLineChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */; };
+		034873251E7F7B2900CF1943 /* WJPieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873231E7F7B2900CF1943 /* WJPieChartViewController.m */; };
+		034873261E7F7B2900CF1943 /* WJPieChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */; };
 		6C25DC910574B40C6796A6B2 /* libPods-CorePlotExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */; };
 		96102B501D31405300FD7C0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B4F1D31405300FD7C0C /* main.m */; };
 		96102B531D31405300FD7C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B521D31405300FD7C0C /* AppDelegate.m */; };
-		96102B561D31405300FD7C0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B551D31405300FD7C0C /* ViewController.m */; };
+		96102B561D31405300FD7C0C /* WJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B551D31405300FD7C0C /* WJHomeViewController.m */; };
 		96102B591D31405300FD7C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96102B571D31405300FD7C0C /* Main.storyboard */; };
 		96102B5B1D31405300FD7C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96102B5A1D31405300FD7C0C /* Assets.xcassets */; };
 		96102B5E1D31405300FD7C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96102B5C1D31405300FD7C0C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		034873181E7F7AF500CF1943 /* WJBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBarChartViewController.h; sourceTree = "<group>"; };
+		034873191E7F7AF500CF1943 /* WJBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBarChartViewController.m; sourceTree = "<group>"; };
+		0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJBarChartViewController.xib; sourceTree = "<group>"; };
+		0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLineChartViewController.h; sourceTree = "<group>"; };
+		0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLineChartViewController.m; sourceTree = "<group>"; };
+		0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJLineChartViewController.xib; sourceTree = "<group>"; };
+		034873221E7F7B2900CF1943 /* WJPieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPieChartViewController.h; sourceTree = "<group>"; };
+		034873231E7F7B2900CF1943 /* WJPieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPieChartViewController.m; sourceTree = "<group>"; };
+		034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPieChartViewController.xib; sourceTree = "<group>"; };
 		4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CorePlotExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C3FDAD0B3C9B6EE615402 /* Pods-CorePlotExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorePlotExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorePlotExample/Pods-CorePlotExample.debug.xcconfig"; sourceTree = "<group>"; };
 		96102B4B1D31405300FD7C0C /* CorePlotExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorePlotExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96102B4F1D31405300FD7C0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96102B511D31405300FD7C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96102B521D31405300FD7C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		96102B541D31405300FD7C0C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		96102B551D31405300FD7C0C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		96102B541D31405300FD7C0C /* WJHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJHomeViewController.h; sourceTree = "<group>"; };
+		96102B551D31405300FD7C0C /* WJHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJHomeViewController.m; sourceTree = "<group>"; };
 		96102B581D31405300FD7C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96102B5A1D31405300FD7C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96102B5D1D31405300FD7C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +59,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034873171E7F7A7500CF1943 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96102B541D31405300FD7C0C /* WJHomeViewController.h */,
+				96102B551D31405300FD7C0C /* WJHomeViewController.m */,
+				034873181E7F7AF500CF1943 /* WJBarChartViewController.h */,
+				034873191E7F7AF500CF1943 /* WJBarChartViewController.m */,
+				0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */,
+				0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */,
+				0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */,
+				0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */,
+				034873221E7F7B2900CF1943 /* WJPieChartViewController.h */,
+				034873231E7F7B2900CF1943 /* WJPieChartViewController.m */,
+				034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		96102B421D31405300FD7C0C = {
 			isa = PBXGroup;
 			children = (
@@ -65,14 +98,7 @@
 		96102B4D1D31405300FD7C0C /* CorePlotExample */ = {
 			isa = PBXGroup;
 			children = (
-				96102B511D31405300FD7C0C /* AppDelegate.h */,
-				96102B521D31405300FD7C0C /* AppDelegate.m */,
-				96102B541D31405300FD7C0C /* ViewController.h */,
-				96102B551D31405300FD7C0C /* ViewController.m */,
-				96102B571D31405300FD7C0C /* Main.storyboard */,
-				96102B5A1D31405300FD7C0C /* Assets.xcassets */,
-				96102B5C1D31405300FD7C0C /* LaunchScreen.storyboard */,
-				96102B5F1D31405300FD7C0C /* Info.plist */,
+				034873171E7F7A7500CF1943 /* ViewController */,
 				96102B4E1D31405300FD7C0C /* Supporting Files */,
 			);
 			path = CorePlotExample;
@@ -81,6 +107,12 @@
 		96102B4E1D31405300FD7C0C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				96102B511D31405300FD7C0C /* AppDelegate.h */,
+				96102B521D31405300FD7C0C /* AppDelegate.m */,
+				96102B571D31405300FD7C0C /* Main.storyboard */,
+				96102B5A1D31405300FD7C0C /* Assets.xcassets */,
+				96102B5C1D31405300FD7C0C /* LaunchScreen.storyboard */,
+				96102B5F1D31405300FD7C0C /* Info.plist */,
 				96102B4F1D31405300FD7C0C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -132,11 +164,13 @@
 		96102B431D31405300FD7C0C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				CLASSPREFIX = WJ;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = WangJace;
 				TargetAttributes = {
 					96102B4A1D31405300FD7C0C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Q7W8UR2RVW;
 					};
 				};
 			};
@@ -163,9 +197,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034873211E7F7B1100CF1943 /* WJLineChartViewController.xib in Resources */,
+				0348731C1E7F7AF500CF1943 /* WJBarChartViewController.xib in Resources */,
 				96102B5E1D31405300FD7C0C /* LaunchScreen.storyboard in Resources */,
 				96102B5B1D31405300FD7C0C /* Assets.xcassets in Resources */,
 				96102B591D31405300FD7C0C /* Main.storyboard in Resources */,
+				034873261E7F7B2900CF1943 /* WJPieChartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +236,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EA770AA25E48E08D48036E28 /* [CP] Embed Pods Frameworks */ = {
@@ -224,7 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96102B561D31405300FD7C0C /* ViewController.m in Sources */,
+				0348731B1E7F7AF500CF1943 /* WJBarChartViewController.m in Sources */,
+				034873201E7F7B1100CF1943 /* WJLineChartViewController.m in Sources */,
+				96102B561D31405300FD7C0C /* WJHomeViewController.m in Sources */,
+				034873251E7F7B2900CF1943 /* WJPieChartViewController.m in Sources */,
 				96102B531D31405300FD7C0C /* AppDelegate.m in Sources */,
 				96102B501D31405300FD7C0C /* main.m in Sources */,
 			);
@@ -266,8 +306,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -311,8 +353,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -341,6 +385,7 @@
 			baseConfigurationReference = 4B5C3FDAD0B3C9B6EE615402 /* Pods-CorePlotExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q7W8UR2RVW;
 				INFOPLIST_FILE = CorePlotExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WangJace.CorePlotExample;
@@ -353,6 +398,7 @@
 			baseConfigurationReference = AD71CE6E3F90B6A1BC84BD7F /* Pods-CorePlotExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q7W8UR2RVW;
 				INFOPLIST_FILE = CorePlotExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WangJace.CorePlotExample;

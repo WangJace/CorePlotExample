@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WJHomeViewController.h
 //  CorePlotExample
 //
 //  Created by 王傲云 on 16/7/9.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WJHomeViewController : UIViewController
 
 
 @end

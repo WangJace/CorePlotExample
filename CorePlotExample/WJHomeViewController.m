@@ -1,14 +1,17 @@
 //
-//  ViewController.m
+//  WJH o meViewController.m
 //  CorePlotExample
 //
 //  Created by 王傲云 on 16/7/9.
 //  Copyright © 2016年 WangJace. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "WJHomeViewController.h"
+#import "WJBarChartViewController.h"
+#import "WJLineChartViewController.h"
+#import "WJPieChartViewController.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface WJHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     NSArray *_dataSource;
 }
@@ -16,12 +19,14 @@
 
 @end
 
-@implementation ViewController
+@implementation WJHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _dataSource = @[@"折线图", @"柱形图", @"饼状图"];
+    _dataSource = @[@"柱形图", @"折线图", @"饼状图"];
+    _myTableView.tableFooterView = [[UIView alloc] init];
+    [_myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"myCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +43,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = _dataSource[indexPath.row];
     return cell;
 }
@@ -48,17 +54,23 @@
     switch (indexPath.row) {
         case 0:
         {
-            //折线图
+            // 柱状图
+            WJBarChartViewController *barChartVC = [[WJBarChartViewController alloc] init];
+            [self.navigationController pushViewController:barChartVC animated:YES];
         }
             break;
         case 1:
         {
-            //柱状图
+            // 折线图
+            WJLineChartViewController *lineChartVC = [[WJLineChartViewController alloc] init];
+            [self.navigationController pushViewController:lineChartVC animated:YES];
         }
             break;
         case 2:
         {
-            //饼状图
+            // 饼状图
+            WJPieChartViewController *pieChartVC = [[WJPieChartViewController alloc] init];
+            [self.navigationController pushViewController:pieChartVC animated:YES];
         }
             break;
         default:
