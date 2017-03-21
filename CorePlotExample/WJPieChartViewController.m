@@ -12,6 +12,8 @@
 @interface WJPieChartViewController () <CPTPieChartDelegate, CPTPieChartDataSource>
 {
     NSArray *_dataSource;
+    NSArray *_types;
+    NSArray *_colors;
 }
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *hostingView;
 
@@ -25,12 +27,9 @@
     self.navigationItem.title = @"饼状图";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    _dataSource = @[
-                    @{@"value":@"0.32", @"type":@"学习", @"color":[UIColor orangeColor]},
-                    @{@"value":@"0.25", @"type":@"娱乐", @"color":[UIColor greenColor]},
-                    @{@"value":@"0.40", @"type":@"工作", @"color":[UIColor yellowColor]},
-                    @{@"value":@"0.13", @"type":@"运动", @"color":[UIColor lightGrayColor]},
-                    ];
+    _dataSource = @[@0.32, @0.25, @0.40, @0.13];
+    _types = @[@"学习", @"娱乐", @"工作", @"运动"];
+    _colors = @[[UIColor orangeColor], [UIColor greenColor], [UIColor yellowColor], [UIColor purpleColor]];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -45,54 +44,71 @@
 }
 
 - (void)setPlot {
+    _hostingView.allowPinchScaling = NO;
+
     CPTMutableLineStyle *lineStyle = [[CPTMutableLineStyle alloc] init];
-    lineStyle.lineColor = [CPTColor purpleColor];
+    lineStyle.lineColor = [CPTColor whiteColor];
     lineStyle.lineWidth = 1.0;
     CPTMutableTextStyle *textStyle = [[CPTMutableTextStyle alloc] init];
     textStyle.color = [CPTColor orangeColor];
+    textStyle.fontName = @"HelveticaNeue-Bold";
     textStyle.fontSize = 20;
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.numberStyle = NSNumberFormatterPercentStyle;
-    
-    CPTXYGraph *graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-    // CPGraph 主题
-    CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
-    [graph applyTheme:theme];
-    graph.frame = _hostingView.bounds;
+    textStyle.textAlignment = CPTTextAlignmentCenter;
+
+    CPTXYGraph *graph = [[CPTXYGraph alloc] initWithFrame:_hostingView.bounds];
+    _hostingView.hostedGraph = graph;
+    // CPTGraph 四边不留白
+    graph.paddingLeft = 0.0;
+    graph.paddingTop = 0.0;
+    graph.paddingRight = 0.0;
+    graph.paddingBottom = 0.0;
     graph.axisSet = nil;
-    // CPGraph 四边不留白
-    graph.paddingTop = 5;
-    graph.paddingBottom = 5;
-    graph.paddingLeft = 10;
-    graph.paddingRight = 10;
+
     graph.titleTextStyle = textStyle;     // 标题风格
     graph.title = @"饼状图";               // 标题
-    _hostingView.hostedGraph = graph;
+    graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;     // 标题位置
     
     // 饼状图
     CPTPieChart *pieChart = [[CPTPieChart alloc] init];
-    pieChart.identifier = @"PieChart";
-//    pieChart.delegate = self;
+    pieChart.delegate = self;
     pieChart.dataSource = self;
     // 设置饼状图的半径
-    pieChart.cornerRadius = 20;
-    // 饼状图的中心
-    pieChart.centerAnchor = _hostingView.center;
+    pieChart.pieRadius = MIN(CGRectGetWidth(_hostingView.bounds), CGRectGetHeight(_hostingView.bounds))*0.7/2.0;
+    pieChart.identifier = graph.title;
     // 饼状图开始的角度
     pieChart.startAngle = M_PI_4;
     // 饼状图的起始方向（顺时间方向／逆时间方向）
     pieChart.sliceDirection = CPTPieDirectionClockwise;
+    pieChart.labelOffset = -0.6 * pieChart.pieRadius;
     // 边框样式
     pieChart.borderLineStyle = lineStyle;
-    pieChart.labelOffset = 10;
-    [graph addPlot:pieChart];
+    textStyle.fontSize = 15;
+    textStyle.color = [CPTColor whiteColor];
+    pieChart.labelTextStyle = textStyle;
+    // 渐变色设置
+    CPTGradient *overlayGradient = [[CPTGradient alloc] init];
+    overlayGradient.gradientType = CPTGradientTypeRadial;
+    overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.0] atPosition:0.9];
+    overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.4] atPosition:1.0];
+    pieChart.overlayFill = [CPTFill fillWithGradient:overlayGradient];
+    [_hostingView.hostedGraph addPlot:pieChart];
     
     // 标注图
-    CPTLegend *legend = [[CPTLegend alloc] init];
+    CPTLegend *legend = [[CPTLegend alloc] initWithGraph:graph];
     legend.numberOfColumns = 1;
-    [legend setFill:[CPTFill fillWithColor:[CPTColor whiteColor]]];
-    legend.delegate = self;
+    legend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    textStyle.fontSize = 18;
+    textStyle.color = [CPTColor blackColor];
+    legend.textStyle = textStyle;
     graph.legend = legend;
+    if (CGRectGetHeight(self.view.bounds) < CGRectGetWidth(self.view.bounds)) {
+        graph.legendAnchor = CPTRectAnchorRight;
+        graph.legendDisplacement = CGPointMake(-20, 0);
+    }
+    else {
+        graph.legendAnchor = CPTRectAnchorBottomRight;
+        graph.legendDisplacement = CGPointMake(-8, 8);
+    }
 }
 
 #pragma mark - CPTPieChartDataSource
@@ -103,32 +119,26 @@
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx
 {
-    NSDictionary *dic = _dataSource[idx];
-    NSNumber *value = dic[@"value"];
-    return value;
+    return _dataSource[idx];
 }
 
 - (CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx
 {
-    NSDictionary *dic = _dataSource[idx];
-    UIColor *color = dic[@"color"];
+    UIColor *color = _colors[idx];
     return [CPTFill fillWithColor:[CPTColor colorWithCGColor:color.CGColor]];
 }
 
 - (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx
 {
-    NSDictionary *dic = _dataSource[idx];
-    NSNumber *value = dic[@"value"];
-    CPTTextLayer *layer = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%d", (int)[value doubleValue]*100]];
+    CGFloat value = [_dataSource[idx] floatValue]*100;
+    CPTTextLayer *layer = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%d%%", (int)value]];
     layer.textStyle = plot.labelTextStyle;
     return layer;
 }
 
 - (NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx
 {
-    NSDictionary *dic = _dataSource[idx];
-    NSNumber *type = dic[@"type"];
-    return [type stringValue];
+    return _types[idx];
 }
 
 #pragma mark - CPTPieChartDelegate
