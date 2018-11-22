@@ -1,12 +1,15 @@
 PODS:
   - CorePlot (2.2)
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - CorePlot (~> 2.2)
+  - Masonry (~> 1.1.0)
 
 SPEC CHECKSUMS:
   CorePlot: cbe0c6e14220705e32e06a89c7d6a5a908b7d7d8
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 9b0b35fa1d59f14717b713bb0d567cba4517d71f
+PODFILE CHECKSUM: 3e0355bf6f8e4358c7446fa2ff9c289aff3aec3b
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0

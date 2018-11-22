@@ -8,6 +8,7 @@
 
 #import "WJPieChartViewController.h"
 #import <CorePlot.h>
+#import <Masonry.h>
 
 @interface WJPieChartViewController () <CPTPieChartDelegate, CPTPieChartDataSource>
 {
@@ -15,7 +16,7 @@
     NSArray *_types;
     NSArray *_colors;
 }
-@property (weak, nonatomic) IBOutlet CPTGraphHostingView *hostingView;
+@property (nonatomic, strong) CPTGraphHostingView *hostingView;
 
 @end
 
@@ -26,10 +27,28 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"饼状图";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.hostingView];
     
     _dataSource = @[@0.32, @0.25, @0.40, @0.13];
     _types = @[@"学习", @"娱乐", @"工作", @"运动"];
     _colors = @[[UIColor orangeColor], [UIColor greenColor], [UIColor yellowColor], [UIColor purpleColor]];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [_hostingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(self.view).offset(self.view.safeAreaInsets.top);
+            make.bottom.equalTo(self.view).offset(-self.view.safeAreaInsets.bottom);
+        } else {
+            // Fallback on earlier versions
+            make.top.equalTo(self.view).offset(64);
+            make.bottom.equalTo(self.view);
+        }
+    }];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -109,6 +128,13 @@
         graph.legendAnchor = CPTRectAnchorBottomRight;
         graph.legendDisplacement = CGPointMake(-8, 8);
     }
+}
+
+- (CPTGraphHostingView *)hostingView {
+    if (!_hostingView) {
+        _hostingView = [[CPTGraphHostingView alloc] init];
+    }
+    return _hostingView;
 }
 
 #pragma mark - CPTPieChartDataSource

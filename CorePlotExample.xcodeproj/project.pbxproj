@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0348731B1E7F7AF500CF1943 /* WJBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873191E7F7AF500CF1943 /* WJBarChartViewController.m */; };
-		0348731C1E7F7AF500CF1943 /* WJBarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */; };
 		034873201E7F7B1100CF1943 /* WJLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */; };
-		034873211E7F7B1100CF1943 /* WJLineChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */; };
 		034873251E7F7B2900CF1943 /* WJPieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873231E7F7B2900CF1943 /* WJPieChartViewController.m */; };
-		034873261E7F7B2900CF1943 /* WJPieChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */; };
 		6C25DC910574B40C6796A6B2 /* libPods-CorePlotExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */; };
 		96102B501D31405300FD7C0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B4F1D31405300FD7C0C /* main.m */; };
 		96102B531D31405300FD7C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B521D31405300FD7C0C /* AppDelegate.m */; };
@@ -25,13 +22,10 @@
 /* Begin PBXFileReference section */
 		034873181E7F7AF500CF1943 /* WJBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBarChartViewController.h; sourceTree = "<group>"; };
 		034873191E7F7AF500CF1943 /* WJBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBarChartViewController.m; sourceTree = "<group>"; };
-		0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJBarChartViewController.xib; sourceTree = "<group>"; };
 		0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLineChartViewController.h; sourceTree = "<group>"; };
 		0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLineChartViewController.m; sourceTree = "<group>"; };
-		0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJLineChartViewController.xib; sourceTree = "<group>"; };
 		034873221E7F7B2900CF1943 /* WJPieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPieChartViewController.h; sourceTree = "<group>"; };
 		034873231E7F7B2900CF1943 /* WJPieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPieChartViewController.m; sourceTree = "<group>"; };
-		034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPieChartViewController.xib; sourceTree = "<group>"; };
 		4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CorePlotExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C3FDAD0B3C9B6EE615402 /* Pods-CorePlotExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorePlotExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorePlotExample/Pods-CorePlotExample.debug.xcconfig"; sourceTree = "<group>"; };
 		96102B4B1D31405300FD7C0C /* CorePlotExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorePlotExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,13 +60,10 @@
 				96102B551D31405300FD7C0C /* WJHomeViewController.m */,
 				034873181E7F7AF500CF1943 /* WJBarChartViewController.h */,
 				034873191E7F7AF500CF1943 /* WJBarChartViewController.m */,
-				0348731A1E7F7AF500CF1943 /* WJBarChartViewController.xib */,
 				0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */,
 				0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */,
-				0348731F1E7F7B1100CF1943 /* WJLineChartViewController.xib */,
 				034873221E7F7B2900CF1943 /* WJPieChartViewController.h */,
 				034873231E7F7B2900CF1943 /* WJPieChartViewController.m */,
-				034873241E7F7B2900CF1943 /* WJPieChartViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -165,7 +156,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WJ;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = WangJace;
 				TargetAttributes = {
 					96102B4A1D31405300FD7C0C = {
@@ -197,12 +188,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034873211E7F7B1100CF1943 /* WJLineChartViewController.xib in Resources */,
-				0348731C1E7F7AF500CF1943 /* WJBarChartViewController.xib in Resources */,
 				96102B5E1D31405300FD7C0C /* LaunchScreen.storyboard in Resources */,
 				96102B5B1D31405300FD7C0C /* Assets.xcassets in Resources */,
 				96102B591D31405300FD7C0C /* Main.storyboard in Resources */,
-				034873261E7F7B2900CF1943 /* WJPieChartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,13 +218,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CorePlotExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA770AA25E48E08D48036E28 /* [CP] Embed Pods Frameworks */ = {
@@ -301,14 +292,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -348,14 +347,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
