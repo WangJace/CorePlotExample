@@ -155,7 +155,7 @@
     barPlot.barOffset = @0.0;                // 柱状图的柱子向左偏移： 1.0
     barPlot.barCornerRadius = 2.0;           // 柱状图的柱子圆角
     barPlot.lineStyle = borderLineStyle;     // 设置柱状图柱条边框线风格
-    barPlot.identifier = @"BarChart";        // 柱状图的标识
+    barPlot.identifier = @"BarChart";        // 柱状图的标识符
     barPlot.dataSource = self;
     barPlot.delegate = self;
     [graph addPlot:barPlot];

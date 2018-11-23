@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"折线图";
+    self.navigationItem.title = @"线形图";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 
@@ -103,7 +103,7 @@
     graph.plotAreaFrame.cornerRadius = 0;
     graph.plotAreaFrame.borderLineStyle = lineStyle;     // 边框线风格，nil表示没有设置边框
     graph.titleTextStyle = textStyle;     // 标题风格
-    graph.title = @"折线图";               // 图表标题
+    graph.title = @"线形图";               // 图表标题
     _hostingView.hostedGraph = graph;
     
     // 设置plotSpace
@@ -150,18 +150,18 @@
     // 初始化plot
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.dataSource = self;
-    linePlot.identifier = @"LineChart";
-    // 折线图圆滑处理
-    linePlot.interpolation = CPTScatterPlotInterpolationCurved;
-    lineStyle.lineColor = LineChartDefaultColor(1.0);
-    linePlot.dataLineStyle = lineStyle;
+    linePlot.identifier = @"LineChart";       // 线形图的标识符
+    // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
+    linePlot.interpolation = CPTScatterPlotInterpolationCurved;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
+    lineStyle.lineColor = LineChartDefaultColor(1.0);     // 设置线条颜色
+    linePlot.dataLineStyle = lineStyle;       // 设置线条风格
 
     // 设置渐变色
     CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:LineChartDefaultColor(0.6)
                                                             endingColor:LineChartDefaultColor(0.2)];
-    areaGradient.angle = -90.0f;
+    areaGradient.angle = -90.0f;     // 渐变色的方向，水平向右为0度，顺时针方向为负方向，逆时针方向为正方向
     CPTFill * areaGradientFill  = [CPTFill fillWithGradient:areaGradient];
-    linePlot.areaFill      = areaGradientFill;
+    linePlot.areaFill = areaGradientFill;
     linePlot.areaBaseValue = @0; // 渐变色的起点位置
     [graph addPlot:linePlot];
 }
