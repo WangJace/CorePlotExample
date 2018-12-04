@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0348731B1E7F7AF500CF1943 /* WJBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873191E7F7AF500CF1943 /* WJBarChartViewController.m */; };
-		034873201E7F7B1100CF1943 /* WJLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */; };
+		0348731B1E7F7AF500CF1943 /* WJBasicBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873191E7F7AF500CF1943 /* WJBasicBarChartViewController.m */; };
+		034873201E7F7B1100CF1943 /* WJBasicLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0348731E1E7F7B1100CF1943 /* WJBasicLineChartViewController.m */; };
 		034873251E7F7B2900CF1943 /* WJPieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034873231E7F7B2900CF1943 /* WJPieChartViewController.m */; };
 		6C25DC910574B40C6796A6B2 /* libPods-CorePlotExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */; };
+		9603808C21B528E200A361B4 /* WJLineChartMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603808B21B528E200A361B4 /* WJLineChartMenuViewController.m */; };
+		9603809221B52EF100A361B4 /* WJBarChartMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603809121B52EF100A361B4 /* WJBarChartMenuViewController.m */; };
+		9603809521B5300000A361B4 /* WJMultipleBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603809421B5300000A361B4 /* WJMultipleBarChartViewController.m */; };
+		9603809821B5337700A361B4 /* WJMultipleLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603809721B5337700A361B4 /* WJMultipleLineChartViewController.m */; };
+		9603809B21B534E600A361B4 /* WJDashLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603809A21B534E600A361B4 /* WJDashLineChartViewController.m */; };
+		9603809E21B54FF100A361B4 /* WJPointLintChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9603809D21B54FF100A361B4 /* WJPointLintChartViewController.m */; };
 		96102B501D31405300FD7C0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B4F1D31405300FD7C0C /* main.m */; };
 		96102B531D31405300FD7C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B521D31405300FD7C0C /* AppDelegate.m */; };
 		96102B561D31405300FD7C0C /* WJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96102B551D31405300FD7C0C /* WJHomeViewController.m */; };
@@ -20,14 +26,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		034873181E7F7AF500CF1943 /* WJBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBarChartViewController.h; sourceTree = "<group>"; };
-		034873191E7F7AF500CF1943 /* WJBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBarChartViewController.m; sourceTree = "<group>"; };
-		0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLineChartViewController.h; sourceTree = "<group>"; };
-		0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLineChartViewController.m; sourceTree = "<group>"; };
+		034873181E7F7AF500CF1943 /* WJBasicBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBasicBarChartViewController.h; sourceTree = "<group>"; };
+		034873191E7F7AF500CF1943 /* WJBasicBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBasicBarChartViewController.m; sourceTree = "<group>"; };
+		0348731D1E7F7B1100CF1943 /* WJBasicLineChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBasicLineChartViewController.h; sourceTree = "<group>"; };
+		0348731E1E7F7B1100CF1943 /* WJBasicLineChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBasicLineChartViewController.m; sourceTree = "<group>"; };
 		034873221E7F7B2900CF1943 /* WJPieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPieChartViewController.h; sourceTree = "<group>"; };
 		034873231E7F7B2900CF1943 /* WJPieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPieChartViewController.m; sourceTree = "<group>"; };
 		4779CA1774BA9CDFF44E9E62 /* libPods-CorePlotExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CorePlotExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5C3FDAD0B3C9B6EE615402 /* Pods-CorePlotExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorePlotExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CorePlotExample/Pods-CorePlotExample.debug.xcconfig"; sourceTree = "<group>"; };
+		9603808A21B528E200A361B4 /* WJLineChartMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJLineChartMenuViewController.h; sourceTree = "<group>"; };
+		9603808B21B528E200A361B4 /* WJLineChartMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJLineChartMenuViewController.m; sourceTree = "<group>"; };
+		9603809021B52EF100A361B4 /* WJBarChartMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJBarChartMenuViewController.h; sourceTree = "<group>"; };
+		9603809121B52EF100A361B4 /* WJBarChartMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJBarChartMenuViewController.m; sourceTree = "<group>"; };
+		9603809321B5300000A361B4 /* WJMultipleBarChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJMultipleBarChartViewController.h; sourceTree = "<group>"; };
+		9603809421B5300000A361B4 /* WJMultipleBarChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJMultipleBarChartViewController.m; sourceTree = "<group>"; };
+		9603809621B5337700A361B4 /* WJMultipleLineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJMultipleLineChartViewController.h; sourceTree = "<group>"; };
+		9603809721B5337700A361B4 /* WJMultipleLineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJMultipleLineChartViewController.m; sourceTree = "<group>"; };
+		9603809921B534E600A361B4 /* WJDashLineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJDashLineChartViewController.h; sourceTree = "<group>"; };
+		9603809A21B534E600A361B4 /* WJDashLineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJDashLineChartViewController.m; sourceTree = "<group>"; };
+		9603809C21B54FF100A361B4 /* WJPointLintChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJPointLintChartViewController.h; sourceTree = "<group>"; };
+		9603809D21B54FF100A361B4 /* WJPointLintChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJPointLintChartViewController.m; sourceTree = "<group>"; };
 		96102B4B1D31405300FD7C0C /* CorePlotExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorePlotExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96102B4F1D31405300FD7C0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96102B511D31405300FD7C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,10 +76,22 @@
 			children = (
 				96102B541D31405300FD7C0C /* WJHomeViewController.h */,
 				96102B551D31405300FD7C0C /* WJHomeViewController.m */,
-				034873181E7F7AF500CF1943 /* WJBarChartViewController.h */,
-				034873191E7F7AF500CF1943 /* WJBarChartViewController.m */,
-				0348731D1E7F7B1100CF1943 /* WJLineChartViewController.h */,
-				0348731E1E7F7B1100CF1943 /* WJLineChartViewController.m */,
+				9603809021B52EF100A361B4 /* WJBarChartMenuViewController.h */,
+				9603809121B52EF100A361B4 /* WJBarChartMenuViewController.m */,
+				034873181E7F7AF500CF1943 /* WJBasicBarChartViewController.h */,
+				034873191E7F7AF500CF1943 /* WJBasicBarChartViewController.m */,
+				9603809321B5300000A361B4 /* WJMultipleBarChartViewController.h */,
+				9603809421B5300000A361B4 /* WJMultipleBarChartViewController.m */,
+				9603808A21B528E200A361B4 /* WJLineChartMenuViewController.h */,
+				9603808B21B528E200A361B4 /* WJLineChartMenuViewController.m */,
+				0348731D1E7F7B1100CF1943 /* WJBasicLineChartViewController.h */,
+				0348731E1E7F7B1100CF1943 /* WJBasicLineChartViewController.m */,
+				9603809921B534E600A361B4 /* WJDashLineChartViewController.h */,
+				9603809A21B534E600A361B4 /* WJDashLineChartViewController.m */,
+				9603809C21B54FF100A361B4 /* WJPointLintChartViewController.h */,
+				9603809D21B54FF100A361B4 /* WJPointLintChartViewController.m */,
+				9603809621B5337700A361B4 /* WJMultipleLineChartViewController.h */,
+				9603809721B5337700A361B4 /* WJMultipleLineChartViewController.m */,
 				034873221E7F7B2900CF1943 /* WJPieChartViewController.h */,
 				034873231E7F7B2900CF1943 /* WJPieChartViewController.m */,
 			);
@@ -252,8 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0348731B1E7F7AF500CF1943 /* WJBarChartViewController.m in Sources */,
-				034873201E7F7B1100CF1943 /* WJLineChartViewController.m in Sources */,
+				9603809B21B534E600A361B4 /* WJDashLineChartViewController.m in Sources */,
+				0348731B1E7F7AF500CF1943 /* WJBasicBarChartViewController.m in Sources */,
+				9603808C21B528E200A361B4 /* WJLineChartMenuViewController.m in Sources */,
+				034873201E7F7B1100CF1943 /* WJBasicLineChartViewController.m in Sources */,
+				9603809E21B54FF100A361B4 /* WJPointLintChartViewController.m in Sources */,
+				9603809221B52EF100A361B4 /* WJBarChartMenuViewController.m in Sources */,
+				9603809521B5300000A361B4 /* WJMultipleBarChartViewController.m in Sources */,
+				9603809821B5337700A361B4 /* WJMultipleLineChartViewController.m in Sources */,
 				96102B561D31405300FD7C0C /* WJHomeViewController.m in Sources */,
 				034873251E7F7B2900CF1943 /* WJPieChartViewController.m in Sources */,
 				96102B531D31405300FD7C0C /* AppDelegate.m in Sources */,

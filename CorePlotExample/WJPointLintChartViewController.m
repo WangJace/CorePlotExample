@@ -1,18 +1,18 @@
 //
-//  WJLineChartViewController.m
+//  WJPointLintChartViewController.m
 //  CorePlotExample
 //
-//  Created by Jace on 20/03/17.
-//  Copyright © 2017年 WangJace. All rights reserved.
+//  Created by 王傲云 on 2018/12/3.
+//  Copyright © 2018 WangJace. All rights reserved.
 //
 
-#import "WJLineChartViewController.h"
+#import "WJPointLintChartViewController.h"
 #import <CorePlot.h>
 #import <Masonry.h>
 
-#define LineChartDefaultColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
+#define LineChartColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
 
-@interface WJLineChartViewController () <CPTScatterPlotDataSource>
+@interface WJPointLintChartViewController ()<CPTScatterPlotDataSource>
 {
     NSArray *_dataSource;
 }
@@ -20,29 +20,29 @@
 
 @end
 
-@implementation WJLineChartViewController
+@implementation WJPointLintChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"线形图";
+    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Point Line Chart";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-
+    
     [self.view addSubview:self.hostingView];
     
     _dataSource = @[
-                    @{ @"x" : @0, @"y" : @17 },
-                    @{ @"x" : @2, @"y" : @22 },
-                    @{ @"x" : @4, @"y" : @15 },
-                    @{ @"x" : @6, @"y" : @12 },
-                    @{ @"x" : @8, @"y" : @7 },
-                    @{ @"x" : @10, @"y" : @16 },
-                    @{ @"x" : @12, @"y" : @26 },
-                    @{ @"x" : @14, @"y" : @36 },
-                    @{ @"x" : @16, @"y" : @30 },
-                    @{ @"x" : @18, @"y" : @19 },
-                    @{ @"x" : @20, @"y" : @14 }
+                    @{ @"x" : @0, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @2, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @4, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @6, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @8, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @10, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @12, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @14, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @16, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @18, @"y" : @(arc4random()%35+5) },
+                    @{ @"x" : @20, @"y" : @(arc4random()%35+5) }
                     ];
 }
 
@@ -111,7 +111,7 @@
     // 设置x,y轴的显示范围     x:0~20, y:0~40
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:@0 length:@20];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:@0 length:@40];
-
+    
     // 坐标轴
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     //x 轴：为坐标系的 x 轴
@@ -152,18 +152,29 @@
     linePlot.dataSource = self;
     linePlot.identifier = @"LineChart";       // 线形图的标识符
     // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
-    linePlot.interpolation = CPTScatterPlotInterpolationCurved;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
-    lineStyle.lineColor = LineChartDefaultColor(1.0);     // 设置线条颜色
+    linePlot.interpolation = CPTScatterPlotInterpolationLinear;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
+    lineStyle.lineColor = LineChartColor(1.0);     // 设置线条颜色
     linePlot.dataLineStyle = lineStyle;       // 设置线条风格
-
-    // 设置渐变色
-    CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:LineChartDefaultColor(0.6)
-                                                            endingColor:LineChartDefaultColor(0.2)];
-    areaGradient.angle = -90.0f;     // 渐变色的方向，水平向右为0度，顺时针方向为负方向，逆时针方向为正方向
-    CPTFill * areaGradientFill  = [CPTFill fillWithGradient:areaGradient];
-    linePlot.areaFill = areaGradientFill;
-    linePlot.areaBaseValue = @0; // 渐变色的起点位置
     [graph addPlot:linePlot];
+    
+    // 添加拐点
+    // 符号类型：椭圆
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    // 符号大小
+    plotSymbol.size = CPTSizeMake(5, 5);
+    // 符号填充色
+    plotSymbol.fill = [CPTFill fillWithColor:LineChartColor(1)];
+    // 边框设置
+    CPTMutableLineStyle *symboLineStyle = [[ CPTMutableLineStyle alloc ] init];
+    symboLineStyle.lineColor = LineChartColor(1.0);
+    symboLineStyle.lineWidth = 1;
+    plotSymbol.lineStyle = symboLineStyle;
+        
+    // 向图形上加入符号
+    linePlot.plotSymbol = plotSymbol;
+        
+    // 设置拐点的外沿范围，以用来扩大检测手指的触摸范围
+    linePlot.plotSymbolMarginForHitDetection = CPTFloat(5);
 }
 
 - (CPTGraphHostingView *)hostingView {
@@ -199,11 +210,6 @@
             break;
     }
     return num;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

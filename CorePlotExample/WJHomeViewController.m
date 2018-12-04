@@ -7,8 +7,8 @@
 //
 
 #import "WJHomeViewController.h"
-#import "WJBarChartViewController.h"
-#import "WJLineChartViewController.h"
+#import "WJBarChartMenuViewController.h"
+#import "WJLineChartMenuViewController.h"
 #import "WJPieChartViewController.h"
 
 @interface WJHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _dataSource = @[@"柱形图", @"线形图", @"饼状图"];
+    _dataSource = @[@"柱状图", @"线形图", @"饼状图"];
     _myTableView.tableFooterView = [[UIView alloc] init];
     [_myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"myCell"];
 }
@@ -56,15 +56,15 @@
         case 0:
         {
             // 柱状图
-            WJBarChartViewController *barChartVC = [[WJBarChartViewController alloc] init];
-            [self.navigationController pushViewController:barChartVC animated:YES];
+            WJBarChartMenuViewController *barChartMenuVC = [[WJBarChartMenuViewController alloc] init];
+            [self.navigationController pushViewController:barChartMenuVC animated:YES];
         }
             break;
         case 1:
         {
             // 线形图
-            WJLineChartViewController *lineChartVC = [[WJLineChartViewController alloc] init];
-            [self.navigationController pushViewController:lineChartVC animated:YES];
+            WJLineChartMenuViewController *lineChartMenuVC = [[WJLineChartMenuViewController alloc] init];
+            [self.navigationController pushViewController:lineChartMenuVC animated:YES];
         }
             break;
         case 2:

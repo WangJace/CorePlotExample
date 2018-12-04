@@ -1,18 +1,19 @@
 //
-//  WJBarChartViewController.m
+//  WJMultipleLineChartViewController.m
 //  CorePlotExample
 //
-//  Created by Jace on 20/03/17.
-//  Copyright © 2017年 WangJace. All rights reserved.
+//  Created by 王傲云 on 2018/12/3.
+//  Copyright © 2018 WangJace. All rights reserved.
 //
 
-#import "WJBarChartViewController.h"
+#import "WJMultipleLineChartViewController.h"
 #import <CorePlot.h>
 #import <Masonry.h>
 
-#define BarChartDefaultColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
+#define LineChart1DefaultColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
+#define LineChart2DefaultColor(a) [CPTColor colorWithComponentRed:100/255.0 green:166/255.0 blue:255/255.0 alpha:a]
 
-@interface WJBarChartViewController () <CPTBarPlotDelegate, CPTBarPlotDataSource>
+@interface WJMultipleLineChartViewController ()<CPTScatterPlotDataSource>
 {
     NSArray *_dataSource;
 }
@@ -20,28 +21,42 @@
 
 @end
 
-@implementation WJBarChartViewController
+@implementation WJMultipleLineChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"柱状图";
+    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Multiple Line Chart";
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     [self.view addSubview:self.hostingView];
-
+    
     _dataSource = @[
-                    @{ @"x" : @2, @"y" : @22 },
-                    @{ @"x" : @4, @"y" : @15 },
-                    @{ @"x" : @6, @"y" : @12 },
-                    @{ @"x" : @8, @"y" : @7 },
-                    @{ @"x" : @10, @"y" : @16 },
-                    @{ @"x" : @12, @"y" : @26 },
-                    @{ @"x" : @14, @"y" : @36 },
-                    @{ @"x" : @16, @"y" : @30 },
-                    @{ @"x" : @18, @"y" : @19 }
-                    ];
+                    @[@{ @"x" : @0, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @2, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @4, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @6, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @8, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @10, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @12, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @14, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @16, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @18, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @20, @"y" : @(arc4random()%35+5) }
+                      ],
+                    @[@{ @"x" : @0, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @2, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @4, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @6, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @8, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @10, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @12, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @14, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @16, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @18, @"y" : @(arc4random()%35+5) },
+                      @{ @"x" : @20, @"y" : @(arc4random()%35+5) }
+                      ]];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -61,7 +76,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    // 先获取_hostingView.hostedGraph，如果为nil才去进行CPTGraph的初始化，同时进行plot和坐标轴的设置
     CPTGraph *graph = _hostingView.hostedGraph;
     if (!graph) {
         [self setPlot];
@@ -83,7 +97,7 @@
     // 刻度值的数据显示格式
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterNoStyle;
-
+    
     CPTXYGraph *graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     // CPTGraph 主题 有：kCPTDarkGradientTheme、kCPTPlainBlackTheme、kCPTPlainWhiteTheme、kCPTSlateTheme、kCPTStocksTheme这几种，主要是设置颜色风格
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
@@ -102,18 +116,18 @@
     graph.plotAreaFrame.cornerRadius = 0;
     graph.plotAreaFrame.borderLineStyle = lineStyle;     // 边框线风格，nil表示没有设置边框
     graph.titleTextStyle = textStyle;     // 标题风格
-    graph.title = @"柱状图";               // 图表标题
+    graph.title = @"线形图";               // 图表标题
     _hostingView.hostedGraph = graph;
-
+    
     // 设置plotSpace
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     // 设置x,y轴的显示范围     x:0~20, y:0~40
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:@0 length:@20];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:@0 length:@40];
-
+    
     // 坐标轴
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-    // x 轴：为坐标系的 x 轴
+    //x 轴：为坐标系的 x 轴
     CPTXYAxis *xOriginPoint = axisSet.xAxis;
     xOriginPoint.labelOffset = 0;     // 刻度值与坐标轴之间的偏移量
     xOriginPoint.labelFormatter = numberFormatter;     // 刻度值的数据格式
@@ -145,20 +159,41 @@
     yOriginPoint.minorTicksPerInterval = 1;    // 短刻度线数量
     yOriginPoint.orthogonalPosition = @0;      // 坐标轴起始值
     yOriginPoint.title = @"y 轴";              // 坐标轴名称
-
-    // 柱状条边框y线style
-    CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
-    borderLineStyle.lineColor = [CPTColor redColor];
-    // 初始化plot，传入柱状图的主题色和柱状条的方向(是否为横向柱状条)
-    CPTBarPlot *barPlot = [CPTBarPlot tubularBarPlotWithColor:BarChartDefaultColor(1.0) horizontalBars:NO];
-    barPlot.barWidth = @1;                   // 柱状图的柱宽
-    barPlot.barOffset = @0.0;                // 柱状图的柱子向左偏移： 1.0
-    barPlot.barCornerRadius = 2.0;           // 柱状图的柱子圆角
-    barPlot.lineStyle = borderLineStyle;     // 设置柱状图柱条边框线风格
-    barPlot.identifier = @"BarChart";        // 柱状图的标识符
-    barPlot.dataSource = self;
-    barPlot.delegate = self;
-    [graph addPlot:barPlot];
+    
+    // 初始化plot
+    CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
+    linePlot.dataSource = self;
+    linePlot.identifier = @"LineChart0";       // 线形图的标识符
+    // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
+    linePlot.interpolation = CPTScatterPlotInterpolationCurved;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
+    lineStyle.lineColor = LineChart1DefaultColor(1.0);     // 设置线条颜色
+    linePlot.dataLineStyle = lineStyle;       // 设置线条风格
+    
+    // 设置渐变色
+    CPTGradient *areaGradient = [CPTGradient gradientWithBeginningColor:LineChart1DefaultColor(0.6)
+                                                            endingColor:LineChart1DefaultColor(0.2)];
+    areaGradient.angle = -90.0f;     // 渐变色的方向，水平向右为0度，顺时针方向为负方向，逆时针方向为正方向
+    CPTFill * areaGradientFill  = [CPTFill fillWithGradient:areaGradient];
+    linePlot.areaFill = areaGradientFill;
+    linePlot.areaBaseValue = @0; // 渐变色的起点位置
+    [graph addPlot:linePlot];
+    
+    linePlot = [[CPTScatterPlot alloc] init];
+    linePlot.dataSource = self;
+    linePlot.identifier = @"LineChart1";       // 线形图的标识符
+    // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
+    linePlot.interpolation = CPTScatterPlotInterpolationCurved;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
+    lineStyle.lineColor = LineChart2DefaultColor(1.0);     // 设置线条颜色
+    linePlot.dataLineStyle = lineStyle;       // 设置线条风格
+    
+    // 设置渐变色
+    areaGradient = [CPTGradient gradientWithBeginningColor:LineChart2DefaultColor(0.6)
+                                               endingColor:LineChart2DefaultColor(0.2)];
+    areaGradient.angle = -90.0f;     // 渐变色的方向，水平向右为0度，顺时针方向为负方向，逆时针方向为正方向
+    areaGradientFill  = [CPTFill fillWithGradient:areaGradient];
+    linePlot.areaFill = areaGradientFill;
+    linePlot.areaBaseValue = @0; // 渐变色的起点位置
+    [graph addPlot:linePlot];
 }
 
 - (CPTGraphHostingView *)hostingView {
@@ -168,14 +203,18 @@
     return _hostingView;
 }
 
-#pragma mark - CPTBarPlotDataSource
+#pragma mark - CPTScatterPlotDataSourc
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return _dataSource.count;
+    NSString *plotId = (NSString *)plot.identifier;
+    NSInteger idIndex = [[[plotId componentsSeparatedByString:@"LineChart"] lastObject] integerValue];
+    return ((NSArray *)_dataSource[idIndex]).count;
 }
 
 - (NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)idx {
-    NSDictionary *dic = _dataSource[idx];
+    NSString *plotId = (NSString *)plot.identifier;
+    NSInteger idIndex = [[[plotId componentsSeparatedByString:@"LineChart"] lastObject] integerValue];
+    NSDictionary *dic = _dataSource[idIndex][idx];
     NSNumber *num = nil;
     switch (fieldEnum) {
         case CPTBarPlotFieldBarLocation:
@@ -194,25 +233,6 @@
             break;
     }
     return num;
-}
-
-- (CPTFill *)barFillForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx
-{
-    // 渐变色
-    CPTGradient *fillGradient = [CPTGradient gradientWithBeginningColor:BarChartDefaultColor(0.8) endingColor:BarChartDefaultColor(0.2)];
-    fillGradient.angle = -90.0;     // 渐变色的方向，水平向右为0度，顺时针方向为负方向，逆时针方向为正方向
-    return [CPTFill fillWithGradient:fillGradient];
-}
-
-#pragma mark - CPTBarPlotDelegate
--(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)idx
-{
-    NSLog(@"index = %lu", (unsigned long)idx);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

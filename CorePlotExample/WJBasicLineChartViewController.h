@@ -1,5 +1,5 @@
 //
-//  WJBarChartViewController.h
+//  WJBasicLineChartViewController.h
 //  CorePlotExample
 //
 //  Created by Jace on 20/03/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WJBarChartViewController : UIViewController
+@interface WJBasicLineChartViewController : UIViewController
 
 @end
