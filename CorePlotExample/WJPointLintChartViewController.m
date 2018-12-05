@@ -12,7 +12,7 @@
 
 #define LineChartColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
 
-@interface WJPointLintChartViewController ()<CPTScatterPlotDataSource>
+@interface WJPointLintChartViewController ()<CPTScatterPlotDataSource, CPTScatterPlotDelegate>
 {
     NSArray *_dataSource;
 }
@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"Point Line Chart";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -150,6 +151,7 @@
     // 初始化plot
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.dataSource = self;
+    linePlot.delegate = self;
     linePlot.identifier = @"LineChart";       // 线形图的标识符
     // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
     linePlot.interpolation = CPTScatterPlotInterpolationLinear;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear
@@ -169,12 +171,10 @@
     symboLineStyle.lineColor = LineChartColor(1.0);
     symboLineStyle.lineWidth = 1;
     plotSymbol.lineStyle = symboLineStyle;
-        
     // 向图形上加入符号
     linePlot.plotSymbol = plotSymbol;
-        
     // 设置拐点的外沿范围，以用来扩大检测手指的触摸范围
-    linePlot.plotSymbolMarginForHitDetection = CPTFloat(5);
+    linePlot.plotSymbolMarginForHitDetection = CPTFloat(50);
 }
 
 - (CPTGraphHostingView *)hostingView {
@@ -210,6 +210,11 @@
             break;
     }
     return num;
+}
+
+#pragma mark - CPTScatterPlotDelegate
+- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolTouchUpAtRecordIndex:(NSUInteger)idx {
+    NSLog(@"index = %lu", (unsigned long)idx);
 }
 
 /*

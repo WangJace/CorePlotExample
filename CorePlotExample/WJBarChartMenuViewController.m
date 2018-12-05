@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"柱状图";
     _dataSource = @[@"Basic", @"Mutiple"];
     [self.view addSubview:self.myTableView];

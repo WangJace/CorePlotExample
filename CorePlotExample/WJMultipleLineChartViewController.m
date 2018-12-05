@@ -13,7 +13,7 @@
 #define LineChart1DefaultColor(a) [CPTColor colorWithComponentRed:245/255.0 green:166/255.0 blue:35/255.0 alpha:a]
 #define LineChart2DefaultColor(a) [CPTColor colorWithComponentRed:100/255.0 green:166/255.0 blue:255/255.0 alpha:a]
 
-@interface WJMultipleLineChartViewController ()<CPTScatterPlotDataSource>
+@interface WJMultipleLineChartViewController ()<CPTScatterPlotDataSource, CPTScatterPlotDelegate>
 {
     NSArray *_dataSource;
 }
@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"Multiple Line Chart";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -163,6 +164,7 @@
     // 初始化plot
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.dataSource = self;
+    linePlot.delegate = self;
     linePlot.identifier = @"LineChart0";       // 线形图的标识符
     // 设置线条风格，可选类型：CPTScatterPlotInterpolationLinear、CPTScatterPlotInterpolationStepped、CPTScatterPlotInterpolationHistogram、CPTScatterPlotInterpolationCurved
     linePlot.interpolation = CPTScatterPlotInterpolationCurved;     // 如果想要折线图的效果可以使用CPTScatterPlotInterpolationLinear

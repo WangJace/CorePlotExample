@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"线形图";
     _dataSource = @[@"Basic", @"Dash", @"Point", @"Mutiple"];
     [self.view addSubview:self.myTableView];
