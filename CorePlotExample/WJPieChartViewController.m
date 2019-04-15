@@ -63,8 +63,9 @@
 }
 
 - (void)setPlot {
-    _hostingView.allowPinchScaling = NO;
+    _hostingView.allowPinchScaling = YES;
 
+    // 设置坐标轴和刻度尺线的style
     CPTMutableLineStyle *lineStyle = [[CPTMutableLineStyle alloc] init];
     lineStyle.lineColor = [CPTColor whiteColor];
     lineStyle.lineWidth = 1.0;
